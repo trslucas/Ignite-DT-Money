@@ -39,7 +39,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
         q: query,
       },
     })
-    setTransactions((state) => [response.data, ...state])
+    setTransactions(response.data)
   }
 
   async function createTransaction(data: CreateTransactionInput) {
@@ -51,7 +51,8 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
       price,
       createdAt: new Date(),
     })
-    setTransactions(response.data)
+
+    setTransactions((state) => [response.data, ...state])
   }
 
   useEffect(() => {
@@ -62,8 +63,8 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     <TransactionsContext.Provider
       value={{
         transactions,
-        fetchTransactions,
         createTransaction,
+        fetchTransactions,
       }}
     >
       {children}
