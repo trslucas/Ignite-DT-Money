@@ -1,6 +1,6 @@
 # Ignite-DT-Money
 
-para rodar: 
+para instalar: 
 npm i 
 
 para rodar a aplicação
